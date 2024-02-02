@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Orange1
 {
-    internal class HomePage
+    [TestClass]
+    public class HomePage
     {
+        [TestMethod]
+        public void TestMethod1()
+        {
+        }
     }
 }
