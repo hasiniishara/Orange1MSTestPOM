@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Orange1
 {
     [TestClass]
-    public class HomePage
+    public class LoginPage
     {
         [TestMethod]
         public void TestMethod1()
