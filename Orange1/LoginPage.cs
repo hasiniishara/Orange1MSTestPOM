@@ -1,17 +1,34 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Orange1;
 
 namespace Orange1
 {
-    [TestClass]
+    
     public class LoginPage
     {
-        [TestMethod]
-        public void TestMethod1()
+        private readonly IWebDriver driver;
+
+        public LoginPage(IWebDriver driver)
         {
+            this.driver = driver;
         }
+
+        public IWebElement UserName => driver.FindElement(By.Id("txtUsername"));
+        public IWebElement UserPassword => driver.FindElement(By.Id("txtPassword"));
+        public IWebElement LoginButton => driver.FindElement(By.XPath("//*[@id=\"frmLogin\"]/div[4]/button"));
+
+        public DashboardPage Login(string UName, string UPassword) {
+            UserName.SendKeys(UName);
+            UserPassword.SendKeys(UPassword);
+            LoginButton.Click();
+
+            return new DashboardPage(driver);
+        }
+       
     }
 }
