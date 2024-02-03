@@ -12,7 +12,7 @@ namespace Orange1
         private static LoginPage loginPage;
         private static DashboardPage dashboardPage;
 
-        [ClassInitialize]
+        [TestInitialize]
         public static void ClassInitialize(TestContext context)
         {
             SystemUtil.OpenSystem();
@@ -32,7 +32,7 @@ namespace Orange1
             Console.WriteLine("Successfully login to the system");
         }
 
-        [ClassCleanup]
+        [TestCleanup]
         public static void ClassCleanup()
         {
             SystemUtil.CloseDriver();
