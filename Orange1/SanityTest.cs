@@ -12,7 +12,7 @@ namespace Orange1
         private static LoginPage loginPage;
         private static DashboardPage dashboardPage;
 
-        [TestInitialize]
+        [ClassInitialize]
         public static void ClassInitialize(TestContext context)
         {
             SystemUtil.OpenSystem();
@@ -24,15 +24,12 @@ namespace Orange1
         [TestMethod]
         public void LoginTest()
         {
-            string UName = "Admin";
-            string UPassword = "z@52zrUKFA";
-
-            dashboardPage = loginPage.Login(UName, UPassword);
+            dashboardPage = loginPage.Login("AdminUser");
             Assert.IsTrue(SystemUtil.GetDriver().Url.Contains("https://devmini-trials711.orangehrmlive.com/client/#/dashboard"));
             Console.WriteLine("Successfully login to the system");
         }
 
-        [TestCleanup]
+        [ClassCleanup]
         public static void ClassCleanup()
         {
             SystemUtil.CloseDriver();

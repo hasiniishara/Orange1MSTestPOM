@@ -8,7 +8,7 @@ using Orange1;
 
 namespace Orange1
 {
-    
+
     public class LoginPage
     {
         private readonly IWebDriver driver;
@@ -22,13 +22,17 @@ namespace Orange1
         public IWebElement UserPassword => driver.FindElement(By.Id("txtPassword"));
         public IWebElement LoginButton => driver.FindElement(By.XPath("//*[@id=\"frmLogin\"]/div[4]/button"));
 
-        public DashboardPage Login(string UName, string UPassword) {
+        public DashboardPage Login(string userKey)
+        {
+            string UName = SystemUtil.GetUsername(userKey);
+            string UPassword = SystemUtil.GetPassword(userKey);
+
             UserName.SendKeys(UName);
             UserPassword.SendKeys(UPassword);
             LoginButton.Click();
 
             return new DashboardPage(driver);
         }
-       
+
     }
 }

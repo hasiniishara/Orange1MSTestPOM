@@ -1,20 +1,28 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace Orange1
 {
     public static class SystemUtil
     {
         private static IWebDriver driver;
+        private static IConfigurationRoot configuration;
+
+
+        static SystemUtil()
+        {
+            // Set up configuration
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+
+            configuration = builder.Build();
+        }
 
         public static IWebDriver GetDriver()
         {
-            if(driver == null)
+            if (driver == null)
             {
                 driver = new ChromeDriver();
             }
@@ -25,6 +33,22 @@ namespace Orange1
         {
             GetDriver().Navigate().GoToUrl("https://devmini-trials711.orangehrmlive.com/");
         }
+
+        public static string GetUsername(string userKey)
+        {
+            return configuration[$"{userKey}:Username"];
+        }
+
+        public static string GetPassword(string userKey)
+        {
+            return configuration[$"{userKey}:Password"];
+        }
+
+
+
+
+
+
 
         public static void CloseDriver()
         {
