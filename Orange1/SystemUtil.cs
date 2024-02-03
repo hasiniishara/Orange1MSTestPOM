@@ -45,11 +45,6 @@ namespace Orange1
         }
 
 
-
-
-
-
-
         public static void CloseDriver()
         {
             if (driver != null)
