@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Orange1;
+using Orange1MSTestPOM;
 
 namespace Orange1MSTestPOM
 {
