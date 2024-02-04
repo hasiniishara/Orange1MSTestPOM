@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Orange1;
 
-namespace Orange1
+namespace Orange1MSTestPOM
 {
 
     public class LoginPage

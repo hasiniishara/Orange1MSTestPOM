@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using Microsoft.Extensions.Configuration;
 
-namespace Orange1
+namespace Orange1MSTestPOM
 {
     public static class SystemUtil
     {
